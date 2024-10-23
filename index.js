@@ -1,4 +1,5 @@
-const express = require(`express`); // Importar la libreria para crear un servidor web
+import express from 'express'
+//const express = require(`express`); // Importar la libreria para crear un servidor web- CommonJS
 
 // Instanciar nuestra aplicación web
 const app = express()
@@ -11,11 +12,11 @@ app.listen(port, ()=>{
 
 // Probamos las rutas para poder presentar mensajes al usuario a través del navegador
 app.get("/", function(req, res){
-    res.send("Hola Mundo desde Node, a través del Navegador")
+    res.send("Hola Mundo desde Node, a travé s del Navegador")
 })
 
 app.get("/QuienSoy", function(req, res){
-    res.json({"estudiante": "Daniel de Jesús Bravo Godínez", 
+    res.json({"Estudiante": "Daniel de Jesús Bravo Godínez", 
         "Carrera": "TI DSM",
         "Grado": "4°",
         "Grupo": "B",
