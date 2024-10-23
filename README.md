@@ -20,5 +20,3 @@ Para poder demostrar y aprender la creación y consumo de Interfaces de Programa
 Unidad 2
 Aplicaciones Web Orientadas a Servicios 
 Octubre 2024
-
-### Esto es un comentario extra en el README para hacer segundo commit
