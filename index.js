@@ -1,25 +1,41 @@
-import express from 'express'
-//const express = require(`express`); // Importar la libreria para crear un servidor web- CommonJS
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import csurf from 'csurf';
 
-// Instanciar nuestra aplicación web
+import generalRoutes from './routes/generalRoutes.js';
+import userRoutes from './routes/userRoutes.js';
+import db from './config/db.js';
+
+// ? Crear la app
 const app = express()
 
-// Configuramos nuestro servidor web 
-const port = 3000;
-app.listen(port, ()=>{
-   console.log(`La aplicación ha iniciado en el puesto: ${port}`);
-})
+app.set('view engine', 'pug')
+app.set('views', './Views')
 
-// Probamos las rutas para poder presentar mensajes al usuario a través del navegador
-app.get("/", function(req, res){
-    res.send("Hola Mundo desde Node, a travé s del Navegador")
-})
 
-app.get("/QuienSoy", function(req, res){
-    res.json({"Estudiante": "Daniel de Jesús Bravo Godínez", 
-        "Carrera": "TI DSM",
-        "Grado": "4°",
-        "Grupo": "B",
-        "Asignatura": "Aplicaciones Web Orientada a Servicios (AWOS)"
-    })
-})
+// ? Habilitar la lectura de los datos de un formulario
+app.use(express.urlencoded({ extended: true }))
+
+// ? Habilitar cookie Parser
+app.use(cookieParser())
+
+// ? Habilitar CSRF
+app.use(csurf({ cookie: true }))
+
+app.use(express.static('./public'))
+
+try {
+    await db.authenticate()
+    db.sync()
+    console.log('Conexión correcta a la base de datos')
+} catch (error) {
+    console.error('Error en la conexión a la base de datos:', error)
+}
+
+app.use('/', generalRoutes)
+app.use('/auth', userRoutes)
+
+const port = process.env.PORT || 3000
+app.listen(port, () =>
+    console.log(`La aplicación ha iniciado en el puerto: ${port}`)
+)
