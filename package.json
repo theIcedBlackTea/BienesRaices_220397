@@ -1,53 +1,55 @@
 {
-  "name":"mx.utxj.ti.bienesraices",
-  "version":"1.0.0",
-  "description":"Proyecto de Clase para la unidad 2 de AWOS, utilizando Node.js",
-  "main":"index.js",
-  "type":"module",
-  "scripts":{
-  "saluda":"node saluda.js",
-  "server":"nodemon index.js",
-  "css":"postcss public/css/tailwind.css -o public/css/app.css --watch"
+  "name": "mx.utxj.ti.bienesraices",
+  "version": "1.0.0",
+  "description": "Proyecto de Clase para la unidad 2 de AWOS, utilizando Node.js",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "saluda": "node saluda.js",
+    "server": "nodemon index.js",
+    "css": "postcss public/css/tailwind.css -o public/css/app.css --watch"
   },
-  "repository":{
-  "type":"git",
-  "url":"https://github.com/theIcedBlackTea/BienesRaices_220397.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theIcedBlackTea/BienesRaices_220397.git"
   },
-  "keywords":[
-  "MVC",
-  "Express",
-  "Sequelize",
-  "MySQL",
-  "TailwindCSS",
-  "Nodemon",
-  "NodeJS",
-  "PUG",
-  "NodeMailer",
-  "Mailtrap",
-  "JWT"
+  "keywords": [
+    "MVC",
+    "Express",
+    "Sequelize",
+    "MySQL",
+    "TailwindCSS",
+    "Nodemon",
+    "NodeJS",
+    "PUG",
+    "NodeMailer",
+    "Mailtrap",
+    "JWT"
   ],
-  "author":"Daniel Godinez Bravo",
-  "license":"ISC",
-  "bugs":{"url":"https://github.com/theIcedBlackTea/BienesRaices_220397.git"
+  "author": "Daniel Godinez Bravo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theIcedBlackTea/BienesRaices_220397.git"
   },
-  "homepage":"https://github.com/theIcedBlackTea/BienesRaices_220397.git#readme",
-  "dependencies":{
-  "bcrypt":"^5.1.1",
-  "cookie-parser":"^1.4.7",
-  "csurf":"^1.10.0",
-  "dotenv":"^16.4.5",
-  "express":"^4.21.1",
-  "express-validator":"^7.2.0",
-  "mysql2":"^3.11.4",
-  "nodemailer":"^6.9.16",
-  "pug":"^3.0.3",
-  "sequelize":"^6.37.5"
-},
-  "devDependencies":{
-  "autoprefixer":"^10.4.20",
-  "nodemon":"^3.1.7",
-  "postcss":"^8.4.47",
-  "postcss-cli":"^11.0.0",
-  "tailwindcss":"^3.4.14"
+  "homepage": "https://github.com/theIcedBlackTea/BienesRaices_220397.git#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "csurf": "^1.10.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-validator": "^7.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.4",
+    "nodemailer": "^6.9.16",
+    "pug": "^3.0.3",
+    "sequelize": "^6.37.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "nodemon": "^3.1.7",
+    "postcss": "^8.4.47",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.14"
   }
 }

@@ -9,9 +9,30 @@ block content
 
             h2.text-center.text-3xl.font-extrabold.text-secondary= page
             
+            if errors && errors.length > 0
+                style.
+                    .fade-error{
+                        transition: opacity 1s ease-in-out;
+                    }
+                script.
+                    setTimeout(function() {
+                        const errorMessages = document.querySelectorAll('.fade-error');
+                        errorMessages.forEach((message, index) => {
+                            setTimeout(() => {
+                                message.style.opacity = '0'; 
+                                setTimeout(() => {
+                                    message.style.display = 'none'; 
+                                }, 1000); 
+                            }, index * 2000); 
+                        });
+                    }, 1500);
+
+                div(class="max-w-md mx-auto my-10")
+                    each error in errors
+                        p.bg-error.text-white.uppercase.text-xs.text-center.p-2.mb-1.font-bold.fade-error(style="font-family: 'Papyrus', 'fantasy'")!= error.msg
     .mt-7.mx-auto.max-w-2xl
         div.bg-neutral.py-8.px-8.shadow-5xl.rounded-lg.bg-dark-200.w-full.max-w-4xl(style="font-family: 'Montserrat', sans-serif;")
-            form(action="/login" method="POST" noValidate)
+            form(action="/auth/login" method="POST" noValidate)
                 input(type="hidden" name="_csrf" value=csrfToken)
 
                 div.mb-5

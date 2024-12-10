@@ -1,5 +1,5 @@
 import express from 'express';
-import { formLogin,formCreateAccount,formPasswordRecovery,create,confirmAccount,checkToken,newPassword,confirm,resetPassword } from '../controllers/userControllers.js';
+import { formLogin,formCreateAccount,formPasswordRecovery,create,confirmAccount,checkToken,newPassword,confirm,resetPassword, authenticate } from '../controllers/userControllers.js';
 const router = express.Router();
 
 //EndPoints - son las rutas para acceder a las secciones o funciones de nuestra aplicacion web
@@ -38,7 +38,8 @@ router.get("/FindById/:Id" ,function (request, response){
         });
 
 
-    router.get("/login", formLogin); 
+    router.get("/login", formLogin);
+    router.post("/login", authenticate); 
     router.get("/register", formCreateAccount); 
     router.post("/register", create); 
     router.get('/confirm_Account/:token', confirmAccount); 
