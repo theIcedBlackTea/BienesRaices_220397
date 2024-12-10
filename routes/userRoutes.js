@@ -1,6 +1,5 @@
 import express from 'express';
-import {formLogin, formCreateAccount, formPasswordRecovery, confirmAccount, create, forgetPassword  } from '../controllers/userControllers.js'
-
+import { formLogin,formCreateAccount,formPasswordRecovery,create,confirmAccount,checkToken,newPassword,confirm,resetPassword } from '../controllers/userControllers.js';
 const router = express.Router();
 
 //EndPoints - son las rutas para acceder a las secciones o funciones de nuestra aplicacion web
@@ -39,13 +38,14 @@ router.get("/FindById/:Id" ,function (request, response){
         });
 
 
-router.get('/login', formLogin);
-
-router.get('/register', formCreateAccount);
-router.post('/register', create);
-
-router.get('/confirm_Account/:token', confirmAccount);
-
-router.get('/forgetPassword', formPasswordRecovery);
-router.post('/forgetPassword', forgetPassword);
+    router.get("/login", formLogin); 
+    router.get("/register", formCreateAccount); 
+    router.post("/register", create); 
+    router.get('/confirm_Account/:token', confirmAccount); 
+    router.get('/confirm/:token', confirm); 
+    router.get("/passwordRecovery", formPasswordRecovery); 
+    router.post("/passwordRecovery",resetPassword)
+        
+    router.get('/passwordRecovery/:token', checkToken); 
+    router.post('/passwordRecovery/:token', newPassword); 
 export default router;
